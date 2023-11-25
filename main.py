@@ -42,3 +42,4 @@ for date, past_crime_url in past_crime_url_list:
 past_data = pd.concat(past_data_list)
 past_data.to_csv('./data/past_year_crime.csv'.format(date), index = False)
 
+
