@@ -27,15 +27,15 @@ jobs:
       - name: execute py script # run main.py
         run: python main.py
 
+      - name: update readme
+        run: |
+          echo "test" > readme.md
+
       - name: commit files
         run: |
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
           git add .
-
-      - name: update readme
-        run: |
-          echo "test" > readme.md
 
       - name: push changes
         run: |
