@@ -34,6 +34,7 @@ jobs:
           git add .
 
       - name: update readme
+        run: |
           echo "test" > readme.md
 
       - name: push changes
