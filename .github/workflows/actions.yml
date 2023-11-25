@@ -3,9 +3,6 @@ name: run main.py
 on:
   schedule:
     - cron: "* * * * *"
-  push:
-    branches:
-      - main
 
 jobs:
   build:
@@ -27,17 +24,15 @@ jobs:
       - name: execute py script # run main.py
         run: python main.py
 
-      - name: update readme
-        run: |
-          echo "test" > readme.md
-
       - name: commit files
         run: |
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
-          git add .
+          git add -A
+          git diff-index --quiet HEAD || (git commit -a -m "updated logs" --allow-empty)
 
       - name: push changes
-        run: |
-          git commit -m "Automated changes"
-          git push
+        uses: ad-m/github-push-action@v0.6.0
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          branch: main
