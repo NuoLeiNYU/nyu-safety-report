@@ -6,7 +6,7 @@ In this project I am building an automated pipeline for the crime incidents happ
 
 The project architecture is as follow. We first injest the data using ADF, then the data would flow to Databricks where we have bronze/silver/gold layer to do the cleaning, validation, and tranformation. Then the data would go the azure synapse for analysis and then to power bi to create the final report with visualization. 
 
-![Page-Statistics.png](image/Architecture Diagram.png "Page-Statistics")
+![Page-Architecture Diagram.png](image/Architecture Diagram.png "Page-Architecture Diagram")
 
 ## Power BI Pages
 
